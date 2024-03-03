@@ -1,0 +1,43 @@
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+$br-palette: (
+  50: #fff7e0,
+  100: #ffeab2,
+  200: #ffdc80,
+  300: #ffd04c,
+  400: #ffc424,
+  500: #fed400,
+  600: #fdac00,
+  700: #fc9900,
+  800: #fc8803,
+  900: #fb6706,
+  A100: #ade7fb,
+  A200: #72D8F9,
+  A400: #00bbf7,
+  A700: #008dd5,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
