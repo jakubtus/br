@@ -1,0 +1,56 @@
+@use '@angular/material' as mat;
+@import "../../../styles";
+
+:host {
+  width: 100%;
+}
+
+.br-select {
+  width: 100%;
+
+  /*  Override  Material styles  */
+
+  .mat-mdc-select-trigger {
+    border: 1px solid #e1e4ed;
+    background: #fafafd;
+    padding: 5px;
+    color: #242334;
+    font-size: 13px;
+  }
+
+
+}
+
+.mat-mdc-select-panel {
+  .mat-mdc {
+    &-option  {
+      &.mdc-list-item  {
+        font-size: 13px;
+        padding: 10px;
+        min-height: 20px;
+
+        .mat-pseudo-checkbox.mat-mdc-option-pseudo-checkbox  {
+          display: none;
+        }
+
+        &__primary-text {
+          color: #242334;
+        }
+
+
+        &--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){
+          background-color: mat.get-theme-color($bloomreach-theme, primary, 500);
+
+          .mdc-list-item__primary-text {
+            color: #242334;
+          }
+        }
+
+        &:hover:not(.mdc-list-item--disabled) {
+          background-color: mat.get-theme-color($bloomreach-theme, primary, 500);
+        }
+      }
+    }
+  }
+}
+
