@@ -1,0 +1,17 @@
+.br-text-field{
+  .mdc-text-field {
+    border-radius: 2px;
+  }
+
+  .mdc-text-field--outlined .mat-mdc-form-field-infix,
+  .mdc-text-field--no-label .mat-mdc-form-field-infix {
+    padding: 8px 0;
+    height: auto;
+    min-height: auto;
+  }
+
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+  }
+}
+

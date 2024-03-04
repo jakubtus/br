@@ -1,0 +1,46 @@
+.br-filter {
+  background: #f8f8fd;
+  border-radius: 5px;
+  border-bottom: 2px solid #e9e8ee;
+  width: 100%;
+  padding: 15px;
+
+  &__header {
+    display: flex;
+    flex-flow: row;
+
+
+    &-title  {
+      color: #1e1d2b;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 600;
+      flex: 1;
+      align-items: center;
+      display: flex;
+    }
+
+    &-button {
+      display: inline-flex;
+      align-items: end;
+      justify-content: end;
+      flex: 1;
+    }
+  }
+
+  &__steps {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid #f1f0f5;
+    margin: 15px 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: start;
+  }
+}

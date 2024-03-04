@@ -1,0 +1,112 @@
+:host {
+  width: 100%;
+}
+
+.br-filter-step {
+  $base: &;
+
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  width: 100%;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f3;
+
+  &:hover {
+    #{$base}__header {
+      &-actions {
+        &-button {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+
+    &-title {
+      font-size: 13px;
+      flex: 1;
+    }
+
+    &-actions {
+      display: flex;
+      flex-flow: row;
+      flex: 1;
+      justify-content: end;
+      height: 20px;
+
+      &-button {
+        background-size: 18px 18px;
+        mask-size:  18px 18px;
+        width: 18px;
+        height: 18px;
+        background-color: #444;
+        cursor: pointer;
+        margin: 0 5px;
+        display: none;
+
+        &--copy {
+          mask: url('../../../assets/icons/copy.svg');
+        }
+
+        &--remove {
+          mask: url('../../../assets/icons/remove.svg');
+        }
+      }
+    }
+  }
+
+  &__form {
+    width: 100%;
+    margin: 25px 0;
+    display: flex;
+
+    &-required-attribute {
+      width: 200px;
+    }
+
+    &-optional-attributes {
+      display: flex;
+      flex-flow: column;
+
+      &-item {
+        $item: &;
+
+        display: flex;
+        flex-flow: row;
+        padding: 0 25px 5px 0;
+
+        &-values-fields {
+          display: flex;
+          align-items: center;
+
+          span {
+            display: inline-block;
+            font-size: 13px;
+            margin: 0 5px;
+          }
+        }
+
+        &-remove {
+          margin: 15px 35px 0;
+          cursor: pointer;
+          display: none;
+        }
+
+        &:hover {
+          #{$item}-remove {
+            display: block;
+          }
+        }
+
+        > * {
+          margin: 0 3px;
+        }
+      }
+    }
+  }
+}

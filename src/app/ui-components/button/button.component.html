@@ -1,0 +1,19 @@
+<div class="br-button">
+  @switch (type) {
+    @case ('flat'){
+      <button (click)="onClick($event)" mat-flat-button [color]="color" [disabled]="disabled">
+        <ng-container [ngTemplateOutlet]="buttonContent"></ng-container>
+      </button>
+    }
+
+    @case ('basic') {
+      <button (click)="onClick($event)" mat-button [color]="color" [disabled]="disabled">
+        <ng-container [ngTemplateOutlet]="buttonContent"></ng-container>
+      </button>
+    }
+  }
+
+  <ng-template #buttonContent>
+    <ng-content></ng-content>
+  </ng-template>
+</div>

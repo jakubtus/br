@@ -1,0 +1,8 @@
+<div class="br-select">
+  <mat-select (valueChange)="onChange($event)" [(value)]="innerValue" panelWidth="" [hideSingleSelectionIndicator]="false" [placeholder]="placeholder ?? ''">
+    <ng-content></ng-content>
+    @for (option of selectOptions; track option.value) {
+      <mat-option [value]="option.value">{{ option.label }}</mat-option>
+    }
+  </mat-select>
+</div>
