@@ -1,0 +1,64 @@
+@use '@angular/material' as mat;
+@import "../../../../styles";
+
+.br-operator-select {
+  &__tabs {
+    display: flex;
+    height: 80px;
+    width: 250px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+
+  &__tab  {
+    $tab: &;
+
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    flex-flow: column;
+    font-size: 13px;
+    cursor: pointer;
+
+    &-content {
+      border-bottom: 2px solid transparent;
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+      color: #676882;
+    }
+
+    &-icon {
+      mask-size: 20px 20px;
+      background-size: 20px 20px;
+      width: 20px;
+      height: 20px;
+      background-color: #676882;
+      margin-bottom: 5px;
+
+      &--text {
+        mask: url('../../../../assets/icons/letter.svg');
+      }
+
+      &--number {
+        mask: url('../../../../assets/icons/hashtag.svg');
+      }
+    }
+
+    &--active  {
+      #{$tab}-content {
+        border-bottom-color: mat.get-theme-color($bloomreach-theme, primary, 500);
+        color: #3b3a49;
+      }
+
+      #{$tab}-icon {
+        background-color: #3b3a49;
+      }
+    }
+  }
+}

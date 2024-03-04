@@ -1,0 +1,33 @@
+<div class="br-operator-select">
+  <br-select [formControl]="selectControl">
+    <div class="br-operator-select__tabs">
+      <div class="br-operator-select__tab" (click)="changeOperatorType(operatorTypeEnum.STRING)" [class.br-operator-select__tab--active]="operatorTypeEnum.STRING === operatorType">
+        <div class="br-operator-select__tab-content">
+          <div class="br-operator-select__tab-icon br-operator-select__tab-icon--text"></div>
+          String
+        </div>
+      </div>
+      <div class="br-operator-select__tab" (click)="changeOperatorType(operatorTypeEnum.NUMBER)" [class.br-operator-select__tab--active]="operatorTypeEnum.NUMBER === operatorType">
+        <div class="br-operator-select__tab-content">
+          <div class="br-operator-select__tab-icon br-operator-select__tab-icon--number"></div>
+          Number
+        </div>
+      </div>
+    </div>
+    @switch (operatorType)  {
+      @case (operatorTypeEnum.NUMBER) {
+        <br-select-option [value]="operatorsEnum.equal_to" label="equal to"></br-select-option>
+        <br-select-option [value]="operatorsEnum.in_between" label="in between"></br-select-option>
+        <br-select-option [value]="operatorsEnum.less_than" label="less than"></br-select-option>
+        <br-select-option [value]="operatorsEnum.greater_than" label="greater than"></br-select-option>
+      }
+
+      @default {
+        <br-select-option [value]="operatorsEnum.equals" label="equals"></br-select-option>
+        <br-select-option [value]="operatorsEnum.does_not_equal" label="does not equal"></br-select-option>
+        <br-select-option [value]="operatorsEnum.contains" label="contains"></br-select-option>
+        <br-select-option [value]="operatorsEnum.does_not_contain" label="does not contain"></br-select-option>
+      }
+    }
+  </br-select>
+</div>
