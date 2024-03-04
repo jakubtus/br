@@ -2,7 +2,7 @@ import {ControlValueAccessor} from "@angular/forms";
 
 export abstract class BaseControlValueAccessor<T> implements ControlValueAccessor {
 
-  onChangeFn!: (value: string) => void;
+  onChangeFn!: (value: T) => void;
   onTouchedFn!: () => void;
   protected innerValue!: T;
 
