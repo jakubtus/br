@@ -1,0 +1,30 @@
+<div class="br-filter" [formGroup]="filterForm">
+  <div class="br-filter__header">
+    <div class="br-filter__header-title">
+      {{ title }}
+    </div>
+
+    <div class="br-filter__header-button">
+      <br-button color="warn" type="basic" (ecClick)="reset()">Discard filters</br-button>
+    </div>
+  </div>
+  <div class="br-filter__steps" formArrayName="events">
+    @if (customerEvents) {
+
+      @for (step of formEventsArray.controls; track step; let index = $index; let first = $first) {
+        <br-filter-step
+          [formControlName]="index"
+          title="{{ index + 1 }}. Step"
+          [customerEvents]="customerEvents"
+          (remove)="onRemoveStep(index)"
+          (copy)="onCopyStep($event)"
+          [canRemove]="!first"
+        ></br-filter-step>
+      }
+    }
+    <br-button (ecClick)="addFilterStep()" color="accent" type="basic">+ ADD FUNNEL STEP</br-button>
+  </div>
+  <div class="br-filter__footer">
+    <br-button (ecClick)="applyFilter()">Apply filters</br-button>
+  </div>
+</div>

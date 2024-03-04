@@ -1,0 +1,67 @@
+<div class="br-filter-step">
+  <div class="br-filter-step__header">
+    <div class="br-filter-step__header-title">
+      {{ title }}: {{ selectedEvent?.type ?? 'Unnamed step' }}
+    </div>
+
+    <div class="br-filter-step__header-actions">
+      @if (this.canRemove) {
+        <span class="br-filter-step__header-actions-button br-filter-step__header-actions-button--remove" (click)="onRemove()"></span>
+      }
+
+      @if (this.canCopy) {
+        <span class="br-filter-step__header-actions-button br-filter-step__header-actions-button--copy" (click)="onCopy()"></span>
+      }
+
+    </div>
+  </div>
+
+  <div class="br-filter-step__form" [formGroup]="form">
+    <div class="br-filter-step__form-required-attribute">
+      <br-select formControlName="eventType" placeholder="Select an event">
+        @for (eventType of eventTypes; track eventType) {
+          <br-select-option [value]="eventType" [label]="eventType"></br-select-option>
+        }
+      </br-select>
+    </div>
+    <div class="br-filter-step__form-optional-attributes" formArrayName="eventProperties">
+      @for (group of eventPropertiesControls; track group; let index = $index) {
+        <div class="br-filter-step__form-optional-attributes-item" [formGroupName]="index">
+          <br-select formControlName="property" (ecChange)="onPropertyChange(index)" placeholder="Select an attribute">
+            @for (property of availableEventProperties; track property) {
+              <br-select-option [value]="property" [label]="property"></br-select-option>
+            }
+          </br-select>
+
+          @if (hasDefinedAttribute(index)) {
+            <br-operator-select (ecChange)="addValueFields(index)" formControlName="operator" #operator>
+            </br-operator-select>
+
+            <div class="br-filter-step__form-optional-attributes-item-values-fields" formArrayName="values">
+              @if (operator.value) {
+                @for (field of getFieldsConfig(StringToOperator(operator.value)); track field; let index = $index; let last = $last) {
+                  <br-text-field [formControlName]="index" [placeholder]="field.placeholder"></br-text-field>
+
+                  @if (!last) {
+                  <span>and</span>
+                  }
+                }
+              }
+            </div>
+          }
+
+          <span (click)="removeAttribute(index)" class="br-filter-step__form-optional-attributes-item-remove">x</span>
+        </div>
+      }
+      @if (canAddAttribute()) {
+        <br-button (ecClick)="addEventProperties()" type="basic" color="accent">
+          @if (eventPropertiesControls.length > 0) {
+            Refine more
+          } @else  {
+            + Add an event attribute
+          }
+        </br-button>
+      }
+    </div>
+  </div>
+</div>
