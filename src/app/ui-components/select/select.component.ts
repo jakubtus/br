@@ -45,10 +45,11 @@ export class SelectComponent extends BaseControlValueAccessor<string> {
 
   onChange(value: string): void {
     this.innerValue = value;
-    this.ecChange.emit(value);
 
     if (this.onChangeFn) {
       this.onChangeFn(value);
     }
+
+    this.ecChange.emit(value);
   }
 }
